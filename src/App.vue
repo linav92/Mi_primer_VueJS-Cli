@@ -1,18 +1,62 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+     <h1>Tabla de Usuarios</h1>
+    <table class="table table-striped table-hover table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>RUN</th>
+          <th>Nacimiento</th>
+          <th>Edad</th>
+        </tr>
+      </thead>
+       <tbody>
+        <tr v-for="(item,index) in lista" :key="index">
+          <td>{{index+1}}</td>
+          <td>{{item.nombre}}</td>
+          <td>{{item.apellido}}</td>
+          <td>{{item.run}}</td>
+          <td>{{item.nacimiento}}</td>
+          <td>{{item.edad}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  data() {
+    return {
+      lista: [
+        {
+          nombre: 'Jose',
+          apellido: 'Perez',
+          run: '123456-2',
+          nacimiento: '12/04/1967',
+          edad: '54'
+        },
+        {
+          nombre: 'Maria',
+          apellido: 'Rodríguez',
+          run: '654321-1',
+          nacimiento: '30/11/1990',
+          edad: '31'
+        },
+        {
+          nombre: 'Manuel',
+          apellido: 'Patiño',
+          run: '987654-5',
+          nacimiento: '02/12/1959',
+          edad: '62'
+        }
+      ],
+    }
+  },
 }
 </script>
 
@@ -23,6 +67,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 10px;
+  padding: 3rem;
 }
 </style>
